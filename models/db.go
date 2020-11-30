@@ -1,7 +1,9 @@
 package models
 
 import (
+	"crypto/sha1"
 	"database/sql"
+	"fmt"
 	"log"
 	"math/rand"
 )
@@ -24,14 +26,14 @@ func createUUID() (uuid string) {
 		log.Fatalln("Cannnot genrate UUID", err)
 	}
 
-	u[8] = (u[8] | 0x40)& 0x7F
+	u[8] = (u[8] | 0x40) & 0x7F
 
 	u[6] = (u[6] & 0xF) | (0x4 << 4)
-	uuid = fmt.Sprintf("%x-%x-%x-%x-%x", u[0:4], u[4:6], u[6:8], u[8:10], u[10:]
+	uuid = fmt.Sprintf("%x-%x-%x-%x-%x", u[0:4], u[4:6], u[6:8], u[8:10], u[10:])
 	return
 }
 
-func Encrypt(plantext string)(cryptext string){
+func Encrypt(plaintext string) (cryptext string) {
 	cryptext = fmt.Sprintf("%x", sha1.Sum([]byte(plaintext)))
 	return
 
