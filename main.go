@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-
+	startWebServer("8080")
 }
 
 func startWebServer(port string) {
