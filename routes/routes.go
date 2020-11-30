@@ -22,4 +22,35 @@ var webRoutes = WebRoutes{
 		"/",
 		handlers.Index,
 	},
+
+	{
+		"signup",
+		"GET",
+		"/signup",
+		handlers.Signup,
+	},
+	{
+		"signupAccount",
+		"POST",
+		"/signup_account",
+		handlers.SignupAccount,
+	},
+	{
+		"login",
+		"GET",
+		"/login",
+		handlers.Login,
+	},
+	{
+		"auth",
+		"POST",
+		"/authenticate",
+		handlers.Authenticate,
+	},
+	{
+		"logout",
+		"GET",
+		"/logout",
+		handlers.Logout,
+	},
 }
