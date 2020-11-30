@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"log"
 	"math/rand"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 var Db *sql.DB
