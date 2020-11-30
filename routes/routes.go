@@ -1,6 +1,10 @@
 package routes
 
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/snowitty/chitchat/handlers"
+)
 
 type WebRoute struct {
 	Name        string
@@ -11,4 +15,11 @@ type WebRoute struct {
 
 type WebRoutes []WebRoute
 
-var webRoutes = WebRoutes{}
+var webRoutes = WebRoutes{
+	{
+		"home",
+		"GET",
+		"/",
+		handlers.Index,
+	},
+}
