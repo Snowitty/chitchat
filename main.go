@@ -13,6 +13,10 @@ func main() {
 
 func startWebServer(port string) {
 	r := NewRouter()
+
+	assets := http.FileServer(http.Dir("public"))
+	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", assets))
+
 	http.Handle("/", r)
 
 	log.Println("Starting HTTP Service at " + port)
