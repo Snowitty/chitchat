@@ -1,11 +1,11 @@
 package models
 
 import (
+	"crypto/rand"
 	"crypto/sha1"
 	"database/sql"
 	"fmt"
 	"log"
-	"math/rand"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -14,7 +14,7 @@ var Db *sql.DB
 
 func init() {
 	var err error
-	Db, err = sql.Open("mysql", "root:root@/chichat?charset=utf8mb4&parseTime=true")
+	Db, err = sql.Open("mysql", "root:300133ys@/chitchat?charset=utf8mb4&parseTime=true")
 	if err != nil {
 		log.Fatal(err)
 	}
