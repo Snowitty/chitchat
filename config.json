@@ -10,6 +10,6 @@
     "Address": "localhost:3306",
     "Database": "chitchat",
     "User": "root",
-    "Password": "300133ys"
+    "Password": "root"
   }
 }
