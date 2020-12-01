@@ -3,8 +3,8 @@ package handlers
 import (
 	"errors"
 	"fmt"
+	"html/template"
 	"net/http"
-	"text/template"
 
 	"github.com/snowitty/chitchat/models"
 )
@@ -15,7 +15,6 @@ func session(writer http.ResponseWriter, request *http.Request) (sess models.Ses
 		sess = models.Session{Uuid: cookie.Value}
 		if ok, _ := sess.Check(); !ok {
 			err = errors.New("Invalid session")
-
 		}
 	}
 	return
