@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/snowitty/chitchat/models"
 )
@@ -34,6 +35,11 @@ func danger(args ...interface{}){
 func warning(args ...interface{}){
 	logger.SetPrefix("WARNING")
 	logger.Println(args...)
+}
+
+func error_message(writer http.ResponseWriter, request *http.Request, msg string){
+	url := []string{"/err?msg=", msg}
+	http.Redirect(writer, request, strings.Join(url, ""), 302)
 }
 
 func session(writer http.ResponseWriter, request *http.Request) (sess models.Session, err error) {
